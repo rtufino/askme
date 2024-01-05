@@ -11,14 +11,18 @@ CONFIG += c++11
 SOURCES += \
     apunte.cpp \
     asignatura.cpp \
+    cuestionario.cpp \
     main.cpp \
     askme.cpp \
+    pregunta.cpp \
     tema.cpp
 
 HEADERS += \
     apunte.h \
     asignatura.h \
     askme.h \
+    cuestionario.h \
+    pregunta.h \
     tema.h
 
 FORMS += \
