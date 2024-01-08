@@ -11,11 +11,15 @@ public:
     Cuestionario(Tema *tema);
 
     Pregunta *siguiente();
-
+    void terminar();
     const QStringList &terminos() const;
 
+    float score() const;
+
+    const QList<Pregunta *> &preguntas() const;
+
 private:
-    float score;
+    float m_score;
     Tema *m_tema;
     QList<Pregunta*> m_preguntas;
     QStringList m_terminos;
