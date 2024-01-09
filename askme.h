@@ -5,6 +5,7 @@
 #include <QMdiSubWindow>
 
 #include "apunteform.h"
+#include "asignatura.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Askme; }
@@ -23,6 +24,10 @@ private slots:
 
 private:
     Ui::Askme *ui;
-    void loadSubWindow(QWidget *ventana);
+    void cargarSubVentana(QWidget *ventana);
+    void cargarDatos();
+
+    QList<Asignatura*> m_asignaturas;
+
 };
 #endif // ASKME_H
