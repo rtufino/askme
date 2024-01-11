@@ -13,20 +13,32 @@ ApunteForm::~ApunteForm()
     delete ui;
 }
 
-const QList<Asignatura *> &ApunteForm::asignaturas() const
+void ApunteForm::setAsignaturas(QList<Asignatura *> &asignaturas)
 {
-    return m_asignaturas;
-}
-
-void ApunteForm::setAsignaturas(const QList<Asignatura *> &newAsignaturas)
-{
-    m_asignaturas = newAsignaturas;
+    m_asignaturas = &asignaturas;
 }
 
 void ApunteForm::cargarAsignaturas()
 {
-    foreach(Asignatura *a, m_asignaturas){
-        qDebug() << a->nombre();
+    ui->cmbAsignaturas->clear();
+    foreach(Asignatura *a, *m_asignaturas){
         ui->cmbAsignaturas->addItem(a->nombre());
     }
 }
+
+void ApunteForm::on_btnAgregarAsignatura_released()
+{
+    bool ok;
+    QString nombre = QInputDialog::getText(this,"Nueva asignatura","Nombre",QLineEdit::Normal,"",&ok);
+
+    if (ok){
+        m_asignaturas->append(new Asignatura(nombre));
+        cargarAsignaturas();
+    }
+}
+
+void ApunteForm::on_btnRefAsig_clicked()
+{
+    cargarAsignaturas();
+}
+

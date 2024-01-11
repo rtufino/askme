@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QDebug>
+#include <QInputDialog>
 
 #include "asignatura.h"
 
@@ -18,12 +19,16 @@ public:
     explicit ApunteForm(QWidget *parent = nullptr);
     ~ApunteForm();
 
-    const QList<Asignatura *> &asignaturas() const;
-    void setAsignaturas(const QList<Asignatura *> &newAsignaturas);
+    void setAsignaturas(QList<Asignatura *> &newAsignaturas);
     void cargarAsignaturas();
+private slots:
+    void on_btnAgregarAsignatura_released();
+
+    void on_btnRefAsig_clicked();
+
 private:
     Ui::ApunteForm *ui;
-    QList<Asignatura*> m_asignaturas;
+    QList<Asignatura*> *m_asignaturas;
 };
 
 #endif // APUNTEFORM_H
