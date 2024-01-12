@@ -19,6 +19,9 @@ public:
     Askme(QWidget *parent = nullptr);
     ~Askme();
 
+public slots:
+    void on_apunteTomado(Apunte *apunte);
+
 private slots:
     void on_actionNuevo_triggered();
 
