@@ -17,6 +17,7 @@ public:
     float score() const;
 
     const QList<Pregunta *> &preguntas() const;
+    const QString nombreTema() const;
 
 private:
     float m_score;

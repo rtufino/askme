@@ -55,3 +55,8 @@ const QList<Pregunta *> &Cuestionario::preguntas() const
 {
     return m_preguntas;
 }
+
+const QString Cuestionario::nombreTema() const
+{
+    return m_tema->nombre();
+}

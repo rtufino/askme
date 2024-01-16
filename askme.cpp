@@ -16,9 +16,15 @@ Askme::~Askme()
 
 void Askme::on_apunteTomado(Apunte *apunte)
 {
-    foreach(Asignatura *a, m_asignaturas){
-        qDebug().noquote() << a->toString();
-    }
+    // TODO: Guardar datos en CSV
+}
+
+void Askme::on_cuestionarioCreado(Cuestionario *cuestionario)
+{
+    PreguntaForm *w = new PreguntaForm(this);
+    w->setCuestionario(cuestionario);
+
+    cargarSubVentana(w);
 }
 
 void Askme::cargarSubVentana(QWidget *ventana)
@@ -29,6 +35,8 @@ void Askme::cargarSubVentana(QWidget *ventana)
 
 void Askme::cargarDatos()
 {
+    // TODO: Cargar datos desde CSV
+
     Tema *t1 = new Tema("Electromagnetismo");
     t1->agregarApunte(new Apunte("Campo eléctrico", "Región del espacio alrededor de una carga eléctrica donde actúa una fuerza eléctrica sobre otras cargas."));
     t1->agregarApunte(new Apunte("Ley de Ampère","Relación matemática que describe la circulación de un campo magnético alrededor de un conductor por el cual fluye una corriente eléctrica."));
@@ -77,6 +85,18 @@ void Askme::on_actionNuevo_triggered()
     w->cargarAsignaturas();
 
     connect(w, SIGNAL(apunteTomado(Apunte*)), this, SLOT(on_apunteTomado(Apunte*)));
+
+    cargarSubVentana(w);
+}
+
+
+void Askme::on_actionGenerar_triggered()
+{
+    CuestionarioForm *w = new CuestionarioForm(this);
+    w->setAsignaturas(m_asignaturas);
+    w->cargarAsignaturas();
+
+    connect(w, SIGNAL(cuestionarioCreado(Cuestionario*)), this, SLOT(on_cuestionarioCreado(Cuestionario*)));
 
     cargarSubVentana(w);
 }

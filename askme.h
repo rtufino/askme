@@ -5,7 +5,11 @@
 #include <QMdiSubWindow>
 
 #include "apunteform.h"
+#include "cuestionarioform.h"
+#include "preguntaform.h"
+
 #include "asignatura.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Askme; }
@@ -21,9 +25,12 @@ public:
 
 public slots:
     void on_apunteTomado(Apunte *apunte);
+    void on_cuestionarioCreado(Cuestionario *cuestionario);
 
 private slots:
     void on_actionNuevo_triggered();
+
+    void on_actionGenerar_triggered();
 
 private:
     Ui::Askme *ui;
