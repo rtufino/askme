@@ -2,6 +2,7 @@
 #define PREGUNTAFORM_H
 
 #include <QWidget>
+#include <QDebug>
 
 #include "cuestionario.h"
 
@@ -20,9 +21,19 @@ public:
 
     void setCuestionario(Cuestionario *newCuestionario);
 
+private slots:
+    void on_buttonBox_rejected();
+
+    void on_buttonBox_accepted();
+
 private:
     Ui::PreguntaForm *ui;
     Cuestionario *m_cuestionario;
+    Pregunta *m_pregunta;
+
+    void cargarDatos();
+    void siguiente();
+    void obtenerPregunta();
 };
 
 #endif // PREGUNTAFORM_H

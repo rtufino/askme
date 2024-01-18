@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>260</width>
-    <height>173</height>
+    <height>196</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -52,10 +52,24 @@
    <item row="2" column="1">
     <widget class="QComboBox" name="cmbTerminos"/>
    </item>
+   <item row="3" column="0">
+    <widget class="QLabel" name="label_4">
+     <property name="text">
+      <string>Pregunta:</string>
+     </property>
+    </widget>
+   </item>
    <item row="3" column="1">
+    <widget class="QLabel" name="lblContador">
+     <property name="text">
+      <string>0 / 0</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+      <set>QDialogButtonBox::Close|QDialogButtonBox::Ok</set>
      </property>
     </widget>
    </item>
