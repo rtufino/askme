@@ -1,9 +1,9 @@
 # ASKme
 ## _Tu aplicación para apuntes de clase_
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
-
 ASKme es una aplicación de escritorio, para generar un cuestionario a partir de apuntes de clase. 
+
+Desarrollado como un proyecto integrador entre alumnos de la Carrera de Educación y Computación de la Universidad Politécnica Salesiana
 
 ## Características
 
@@ -15,6 +15,13 @@ ASKme es una aplicación de escritorio, para generar un cuestionario a partir de
 
 ## Desarrollo
 
+Diseño inicial de las interfaces gráficas:
+
+![Diseño inicial de GUI](https://github.com/rtufino/askme/blob/main/recursos/gui_inicial.jpg?raw=true)
+
+Diagrama UML de clases inicial
+
+![Diseño inicial de Clases](https://github.com/rtufino/askme/blob/main/recursos/clases_inicial.png?raw=true)
 
 ## Autores
 
