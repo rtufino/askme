@@ -24,7 +24,16 @@ void Askme::on_cuestionarioCreado(Cuestionario *cuestionario)
     PreguntaForm *w = new PreguntaForm(this);
     w->setCuestionario(cuestionario);
 
+    connect(w,SIGNAL(cuestionarioFinalizado(Cuestionario*)), this, SLOT(on_cuestionarioFinalizado(Cuestionario *)));
+
     cargarSubVentana(w);
+}
+
+void Askme::on_cuestionarioFinalizado(Cuestionario *cuestionario)
+{
+    qDebug() << cuestionario->score();
+    foreach(Pregunta *p, cuestionario->preguntas())
+        qDebug() << p->toString();
 }
 
 void Askme::cargarSubVentana(QWidget *ventana)
@@ -99,5 +108,11 @@ void Askme::on_actionGenerar_triggered()
     connect(w, SIGNAL(cuestionarioCreado(Cuestionario*)), this, SLOT(on_cuestionarioCreado(Cuestionario*)));
 
     cargarSubVentana(w);
+}
+
+
+void Askme::on_actionSalir_triggered()
+{
+    this->close();
 }
 

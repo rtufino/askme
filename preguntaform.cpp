@@ -41,15 +41,24 @@ void PreguntaForm::obtenerPregunta()
         int actual = m_cuestionario->mostradas();
         int total = m_cuestionario->totalPreguntas();
         ui->lblContador->setText(QString::number(actual) + " / " + QString::number(total));
+        ui->cmbTerminos->setCurrentIndex(0);
     }else{
-        ui->txtConcepto->setText("**** FIN DEL CUESTIONARIO ***");
+        finalizar();
     }
 
 }
 
+void PreguntaForm::finalizar()
+{
+    m_cuestionario->terminar();
+    emit cuestionarioFinalizado(m_cuestionario);
+    // Cerrar la ventana
+    this->parentWidget()->close();
+}
+
 void PreguntaForm::on_buttonBox_rejected()
 {
-    qDebug() << "rejected!";
+    finalizar();
 }
 
 

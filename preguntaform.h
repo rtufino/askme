@@ -18,12 +18,13 @@ public:
     explicit PreguntaForm(QWidget *parent = nullptr);
     ~PreguntaForm();
 
-
     void setCuestionario(Cuestionario *newCuestionario);
+
+signals:
+    void cuestionarioFinalizado(Cuestionario *cuestionario);
 
 private slots:
     void on_buttonBox_rejected();
-
     void on_buttonBox_accepted();
 
 private:
@@ -34,6 +35,7 @@ private:
     void cargarDatos();
     void siguiente();
     void obtenerPregunta();
+    void finalizar();
 };
 
 #endif // PREGUNTAFORM_H

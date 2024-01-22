@@ -26,11 +26,14 @@ public:
 public slots:
     void on_apunteTomado(Apunte *apunte);
     void on_cuestionarioCreado(Cuestionario *cuestionario);
+    void on_cuestionarioFinalizado(Cuestionario *cuestionario);
 
 private slots:
     void on_actionNuevo_triggered();
 
     void on_actionGenerar_triggered();
+
+    void on_actionSalir_triggered();
 
 private:
     Ui::Askme *ui;
