@@ -31,9 +31,10 @@ void Askme::on_cuestionarioCreado(Cuestionario *cuestionario)
 
 void Askme::on_cuestionarioFinalizado(Cuestionario *cuestionario)
 {
-    qDebug() << cuestionario->score();
-    foreach(Pregunta *p, cuestionario->preguntas())
-        qDebug() << p->toString();
+    ResultadosForm *w = new ResultadosForm(this);
+    w->setCuestionario(cuestionario);
+
+    cargarSubVentana(w);
 }
 
 void Askme::cargarSubVentana(QWidget *ventana)

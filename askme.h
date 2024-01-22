@@ -7,6 +7,7 @@
 #include "apunteform.h"
 #include "cuestionarioform.h"
 #include "preguntaform.h"
+#include "resultadosform.h"
 
 #include "asignatura.h"
 
