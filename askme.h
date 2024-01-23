@@ -3,13 +3,17 @@
 
 #include <QMainWindow>
 #include <QMdiSubWindow>
+#include <QFile>
 
 #include "apunteform.h"
 #include "cuestionarioform.h"
 #include "preguntaform.h"
 #include "resultadosform.h"
+#include "listaform.h"
 
 #include "asignatura.h"
+#include "tema.h"
+#include "apunte.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -36,12 +40,16 @@ private slots:
 
     void on_actionSalir_triggered();
 
+    void on_actionLista_triggered();
+
 private:
     Ui::Askme *ui;
     void cargarSubVentana(QWidget *ventana);
     void cargarDatos();
+    void guardarDatos();
 
     QList<Asignatura*> m_asignaturas;
+    const QString ARCHIVO = "apuntes.csv";
 
 };
 #endif // ASKME_H
