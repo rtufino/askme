@@ -40,13 +40,15 @@ void CuestionarioForm::on_cmbAsignaturas_currentIndexChanged(int index)
 
 void CuestionarioForm::on_buttonBox_accepted()
 {
-    // Obtener nos indices d elos combos
+    // Obtener nos indices de los combos
     int indexAsignatura = ui->cmbAsignaturas->currentIndex();
     int indextema = ui->cmbTemas->currentIndex();
+    // Obtener el texto de la asignatura seleccionada
+    QString asignatura = ui->cmbAsignaturas->currentText();
     // Crear la tarea
     Tema *t = m_asignaturas->at(indexAsignatura)->temas().at(indextema);
-    // Emitir señal
-    emit cuestionarioCreado(new Cuestionario(t));
+    // Emitir señal con el nuevo cuestionario
+    emit cuestionarioCreado(new Cuestionario(asignatura, t));
     // Cerrar la ventana
     this->parentWidget()->close();
 }

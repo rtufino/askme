@@ -27,11 +27,16 @@ void ResultadosForm::setCuestionario(Cuestionario *newCuestionario)
 
 void ResultadosForm::cargarDatos()
 {
+    // Mostrar el tema
     QString tema = m_cuestionario->nombreTema();
     ui->lblTema->setText(tema);
+    // Mostrar el score
     double score = m_cuestionario->score();
     ui->lblScore->setText(QString::number(score) + " %");
-
+    // Mostrar la asignatura
+    QString asignatura = m_cuestionario->asignatura();
+    ui->lblAsignatura->setText(asignatura);
+    // cargar la tabla de preguntas respondidas
     foreach(Pregunta *p, m_cuestionario->preguntas()){
         if (p->respondida()){
             //Agregar a la tabla
