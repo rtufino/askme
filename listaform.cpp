@@ -33,8 +33,12 @@ void ListaForm::cargarAsignaturas()
 
 void ListaForm::on_cmbAsignaturas_currentIndexChanged(int index)
 {
+    int filasBorrar = ui->tblTemas->rowCount();
+    for(int i=0; i< filasBorrar; i++){
+        ui->tblTemas->removeRow(0);
+    }
+
     Asignatura *a = m_asignaturas->at(index);
-    ui->tblTemas->clearContents();
     int fila = 0;
     foreach(Tema *t, a->temas()){
         QString tema = t->nombre();

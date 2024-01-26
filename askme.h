@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QMdiSubWindow>
 #include <QFile>
+#include <QDir>
 
 #include "apunteform.h"
 #include "cuestionarioform.h"
@@ -47,9 +48,12 @@ private:
     void cargarSubVentana(QWidget *ventana);
     void cargarDatos();
     void guardarDatos();
+    void datosPrueba();
 
     QList<Asignatura*> m_asignaturas;
-    const QString ARCHIVO = "apuntes.csv";
+    QString m_path;
+    QString m_archivo;
+    bool m_normal = true;
 
 };
 #endif // ASKME_H
